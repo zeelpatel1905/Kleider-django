@@ -1,0 +1,266 @@
+{% load static %}
+{% load imagekit %}
+{% include 'common/header.html' %}
+<!-- switcher-grid and list alignment -->
+<script src='{% static "js/tabs.js" %}'></script>
+<script type="text/javascript">
+$(document).ready(function () {
+    var elem=$('#container ul');
+	$('#viewcontrols a').on('click',function(e) {
+		if ($(this).hasClass('gridview')) {
+			elem.fadeOut(1000, function () {
+				$('#container ul').removeClass('list').addClass('grid');
+				$('#viewcontrols').removeClass('view-controls-list').addClass('view-controls-grid');
+				$('#viewcontrols .gridview').addClass('active');
+				$('#viewcontrols .listview').removeClass('active');
+				elem.fadeIn(1000);
+			});
+		}
+		else if($(this).hasClass('listview')) {
+			elem.fadeOut(1000, function () {
+				$('#container ul').removeClass('grid').addClass('list');
+				$('#viewcontrols').removeClass('view-controls-grid').addClass('view-controls-list');
+				$('#viewcontrols .gridview').removeClass('active');
+				$('#viewcontrols .listview').addClass('active');
+				elem.fadeIn(1000);
+			});
+		}
+	});
+});
+</script>
+<!-- //switcher-grid and list alignment -->
+<script>
+(function(){
+	if(typeof _bsa !== 'undefined' && _bsa) {
+  		// format, zoneKey, segment:value, options
+  		_bsa.init('flexbar', 'CKYI627U', 'placement:w3layoutscom');
+  	}
+})();
+</script>
+<script>
+(function(){
+if(typeof _bsa !== 'undefined' && _bsa) {
+	// format, zoneKey, segment:value, options
+	_bsa.init('fancybar', 'CKYDL2JN', 'placement:demo');
+}
+})();
+</script>
+<script>
+(function(){
+	if(typeof _bsa !== 'undefined' && _bsa) {
+  		// format, zoneKey, segment:value, options
+  		_bsa.init('stickybox', 'CKYI653J', 'placement:w3layoutscom');
+  	}
+})();
+</script><script>
+	(function(v,d,o,ai){ai=d.createElement("script");ai.defer=true;ai.async=true;ai.src=v.location.protocol+o;d.head.appendChild(ai);})(window, document, "../../../../../../vdo.ai/core/w3layouts/vdo.ai.js");
+	</script><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125810435-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125810435-1');
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../../../../www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-30027142-1', 'w3layouts.com');
+  ga('send', 'pageview');
+</script>
+	<!-- breadcrumbs -->
+	<div class="w3layouts-breadcrumbs text-center">
+		<div class="container">
+			<span class="agile-breadcrumbs"><a href="{% url 'home' %}">
+                <i class="fa fa-home home_1"></i></a> / <span>All Ads</span>
+            </span>
+		</div>
+	</div>
+	<!-- //breadcrumbs -->
+	<!---728x90--->
+
+	<!-- Products -->
+	<div class="total-ads main-grid-border">
+		<div class="container">
+			<div class="ads-grid">
+				<div class="side-bar col-md-3">
+					<div class="search-hotel">
+					<h3 class="agileits-sear-head">Name contains</h3>
+					<form method="get" action="{% url 'search' %}">
+						<input type="text" name="product" value="Product Name or Category..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Product name...';}" required="">
+						<input type="submit" value=" ">
+					</form>
+				</div>
+
+				<div class="range">
+					<h3 class="agileits-sear-head">Price range</h3>
+							<ul class="dropdown-menu6">
+								<li>
+									<div id="slider-range"></div>
+                                    <input type="text" id="amount" style="border: 0; color: #ffffff; font-weight: normal;" />
+                                </li>
+							</ul>
+							<!---->
+							<script type="text/javascript" src='{% static "js/jquery-ui.js" %}'></script>
+							<script type='text/javascript'>//<![CDATA[
+							$(window).load(function(){
+							 $( "#slider-range" ).slider({
+										range: true,
+										min: 0,
+										max: 9000,
+										values: [ 50, 6000 ],
+										slide: function( event, ui ) {  $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+										}
+							 });
+							$( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) + " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+
+							});//]]>
+
+							</script>
+
+				</div>
+                </div>
+				<div class="agileinfo-ads-display col-md-9">
+					<div class="wrapper">
+					<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+					  <ul id="myTab" class="nav nav-tabs nav-tabs-responsive" role="tablist">
+						<li role="presentation" class="active">
+						  <a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">
+							<span class="text">All Ads</span>
+						  </a>
+						</li>
+					  </ul>
+					  <div id="myTabContent" class="tab-content">
+						<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+						   <div>
+                               <div class="container">
+								<div class="sort">
+								   <div class="sort-by">
+										<label>Sort By : </label>
+                                        <form method="post" action="{% url 'products' %}">
+                                            <select name="sort">
+                                                <option value="recent" selected="selected">Most recent</option>
+                                                <option value="low">Price: Rs. Low to High</option>
+                                                <option value="high">Price: Rs. High to Low</option>
+										    </select>
+                                            <input type="submit" value=" ">
+                                        </form>
+									   </div><br/>
+									 </div>
+								<div class="clearfix"></div>
+							<ul class="list">
+								{% if object_list %}
+								  {% for product in object_list %}
+								    <a href="{{ product.get_absolute_url }}">
+                                        <li>
+										<section class="list-left">
+                                        <img src='{{ product.smart1.url }}' title="" alt="" />
+                                        <h5 class="title">{{ product.title }}</h5>
+                                        <span class="adprice">Rs. {{ product.price }}</span>
+                                        <p class="catpath">{{ product.get_category_display }} » {{ product.title }}</p>
+                                        </section>
+                                        <section class="list-right">
+                                         <span class="cityname"><strong>For {{ product.get_occasion_display }}</strong></span>
+                                         <span class="adprice">{{ product.get_condition_display }}</span>
+											{% if product.user == request.user.profile %}
+												<a href='{% url "edit" product.id %}'><input type="submit" value="Edit"></a>
+												<a href='{% url "delete" product.id %}'><input type="submit" value="Delete"></a>
+											{% elif product in current_order_products %}
+											<a href="{% url 'cart:order_summary' %}" class="btn btn-warning">Go to Cart</a>
+											{% else %}
+											<a href="{% url 'cart:add_to_cart' product.id %}" class="btn btn-warning">Add to Cart</a>
+                                       	    {% endif %}
+                                        </section>
+                                        <div class="clearfix"></div>
+                                        </li>
+                                    </a>
+								{% endfor %}
+								{% else %}
+								<h2> No entries found</h2>
+								{% endif %}
+                            </ul>
+						</div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+						 <div>
+                             <div id="container">
+								<div class="view-controls-list" id="viewcontrols">
+									<label>view :</label>
+									<a class="gridview"><i class="glyphicon glyphicon-th"></i></a>
+									<a class="listview active"><i class="glyphicon glyphicon-th-list"></i></a>
+								</div>
+                             </div>
+                         </div>
+						</div>
+                        {% if is_paginated %}
+                            <ul class="pagination">
+                                {% if page_obj.has_previous %}
+                                    <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+                                {% else %}
+                                    <li class="disabled"><span>&laquo;</span></li>
+                                {% endif %}
+                                {% for i in paginator.page_range %}
+                                    {% if page_obj.number == i %}
+                                        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                                    {% else %}
+                                        <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if page_obj.has_next %}
+                                    <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                                {% else %}
+                                  <li class="disabled"><span>&raquo;</span></li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+
+
+					  </div>
+					</div>
+				</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+	<!-- // Products -->
+		<!-- Navigation-JavaScript -->
+			<script src="../static/static/js/classie.js"></script>
+			<script src="../static/static/js/main.js"></script>
+		<!-- //Navigation-JavaScript -->
+		<!-- here stars scrolling icon -->
+			<script type="text/javascript">
+				$(document).ready(function() {
+					/*
+						var defaults = {
+						containerID: 'toTop', // fading element id
+						containerHoverID: 'toTopHover', // fading element hover id
+						scrollSpeed: 1200,
+						easingType: 'linear'
+						};
+					*/
+
+					$().UItoTop({ easingType: 'easeOutQuart' });
+
+					});
+			</script>
+			<!-- start-smoth-scrolling -->
+			<script type="text/javascript" src="../static/static/js/move-top.js"></script>
+			<script type="text/javascript" src="../static/static/js/easing.js"></script>
+			<script type="text/javascript">
+				jQuery(document).ready(function($) {
+					$(".scroll").click(function(event){
+						event.preventDefault();
+						$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+					});
+				});
+			</script>
+			<!-- start-smoth-scrolling -->
+		<!-- //here ends scrolling icon -->
+
+<!-- Mirrored from p.w3layouts.com/demos/aug-2016/24-08-2016/resale_v2/web/all-classifieds.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Oct 2018 11:02:06 GMT -->
+{% include 'common/footer.html' %}

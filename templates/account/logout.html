@@ -1,0 +1,22 @@
+{% load static %}
+{% load i18n %}
+{% include 'common/header.html' %}
+
+<section>
+    <div id="agileits-sign-in-page" class="sign-in-wrapper">
+        <div class="agileinfo_signin">
+            <h3 class="confirm_logout_info">{% trans 'Are you sure you want to sign out?' %}</h3>
+            <form id="logout_form" action="{% url 'account_logout' %}" method="post"> {% csrf_token %}
+                {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                {% endif %}
+                <input type="submit" value="Sign Out" />
+                <div class="forgot-grid">
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+{% include 'common/footer.html' %}

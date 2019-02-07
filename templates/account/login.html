@@ -1,0 +1,67 @@
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% include 'common/header.html' %}
+<!-- sign in form -->
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '260651221292986',
+            xfbml      : true,
+            version    : 'v3.2'
+        });
+        FB.AppEvents.logPageView();
+    };
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<section>
+	<div id="agileits-sign-in-page" class="sign-in-wrapper">
+        <div class="agileinfo_signin">
+            <h3>Sign In</h3>
+            {% if messages %}
+                <div>
+                    <ul>
+                        {% for message in messages %}
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>{{message}}</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+            <form id="login_form" method="post" action="{% url 'account_login' %}" autocomplete="off"> {% csrf_token %}
+                {{ form|crispy }}
+                {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+
+                <input type="submit" value="Sign In" class="btn btn-primary pull-right" />
+                <br/><hr/>
+
+                <div class="forgot-grid">
+                    <div class="forgot">
+                        <h6><a href="{% url 'account_reset_password' %}" data-toggle="modal" class="btn btn-outline-dark">Forgot Password ?</a></h6>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+
+				<h6> Not a Member Yet? <a href="{% url 'account_signup' %}">Sign Up Now</a> </h6>
+
+            </form>
+
+        </div>
+    </div>
+</section>
+	<!-- //sign in form -->
+	<!---728x90--->
+{% include 'common/footer.html' %}

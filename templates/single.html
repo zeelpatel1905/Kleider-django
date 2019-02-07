@@ -1,0 +1,93 @@
+{% load static %}
+{% include 'common/header.html' %}
+	<!-- breadcrumbs -->
+	<div class="w3layouts-breadcrumbs text-center">
+		<div class="container">
+			<span class="agile-breadcrumbs">
+			<a href='{% url "home" %}'><i class="fa fa-home home_1"></i></a>
+			<a href="all-classifieds.html">All Ads</a> /
+			<a href="cars.html">{{ object.category.title }}</a> /
+			<span>{{ object.title }}</span></span>
+		</div>
+	</div>
+	<!-- //breadcrumbs -->
+	<!---728x90--->
+
+	<!--single-page-->
+	<div class="single-page main-grid-border">
+		<div class="container">
+			<div class="product-desc">
+				<div class="col-md-7 product-view">
+                    <h2>{{ object.title }}</h2>
+					<p> Ad ID: {{ object.id }}</p>
+					<div class="flexslider">
+						<ul class="slides">
+							<li data-thumb="{{ object.smart1.url }}">
+								<img src="{{ object.smart1.url }}" />
+							</li>
+                            {% if object.image2 %}
+							<li data-thumb="{{ object.smart2.url }}">
+								<img src="{{ object.smart2.url }}" />
+							</li>
+                            {% endif %}
+                            {% if object.image3 %}
+							<li data-thumb="{{ object.smart3.url }}">
+								<img src="{{ object.smart3.url }}" />
+							</li>
+                            {% endif %}
+                            {% if object.image4 %}
+							<li data-thumb="{{ object.smart4.url }}">
+								<img src="{{ object.smart4.url }}" />
+							</li>
+                            {% endif %}
+						</ul>
+					</div>
+					<!-- FlexSlider -->
+					  <script defer src='{% static "js/jquery.flexslider.js" %}'></script>
+
+						<script>
+					// Can also be used with $(document).ready()
+					$(window).load(function() {
+					  $('.flexslider').flexslider({
+						animation: "slide",
+						controlNav: "thumbnails"
+					  });
+					});
+					</script>
+					<!-- //FlexSlider -->
+					<div class="product-details">
+						<h4><span class="w3layouts-agileinfo">Best For </span> : <strong>{{ object.get_occasion_display }}</strong></h4>
+						<h4><span class="w3layouts-agileinfo">Suits on </span> : {{ object.get_gender_display }}</h4>
+						<h4><span class="w3layouts-agileinfo">Description </span> :<p>{{ object.description }}</p><div class="clearfix"></div></h4>
+
+					</div>
+				</div>
+				<div class="col-md-5 product-details-grid">
+					<div class="item-price">
+						<div class="product-price">
+							<p class="p-price">Price</p>
+							<h3 class="rate">Rs. {{ object.price }}</h3>
+							<div class="clearfix"></div>
+						</div>
+						<div class="condition">
+							<p class="p-price">Condition</p>
+							<h4>{{ object.get_condition_display }}</h4>
+							<div class="clearfix"></div>
+						</div>
+						<div class="itemtype">
+							<p class="p-price">Item Type</p>
+							<h4>{{ object.get_category_display }}</h4>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<div class="interested text-center">
+						<h4>Interested in this Ad?<small> Contact the Seller!</small></h4>
+						<p>{{ object.user.user }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<i class="glyphicon glyphicon-earphone"></i>{{ object.user.tel }}</p>
+					</div>
+				</div>
+			<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+
+{% include 'common/footer.html' %}

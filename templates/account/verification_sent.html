@@ -1,0 +1,16 @@
+{% load static %}
+{% load i18n %}
+{% include 'common/header.html' %}
+
+<section>
+	<div id="agileits-sign-in-page" class="sign-in-wrapper">
+		<div class="agileinfo_signin">
+    		<h3>{% trans 'Verify Your E-mail Address' %}</h3>
+            <p id="verification_sent_info">
+                We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes.
+            </p>
+        </div>
+    </div>
+</section>
+
+{% include 'common/footer.html' %}
